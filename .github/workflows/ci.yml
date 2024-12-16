@@ -1,0 +1,27 @@
+name: Run CI
+
+on:
+  pull_request:
+    branches: ["master", "main"]
+    paths-ignore: ["docs/**"]
+  workflow_run:
+    workflows: [ "Build and Publish DEV images" ]
+    types:
+      - completed
+
+  push:
+    branches-ignore:
+      - master
+    paths-ignore: ["docs/**"]
+
+jobs:
+  ci:
+    uses: feedgy/templates/.github/workflows/ci.yml@main
+    with:
+      image_name: ${{ github.repository }}
+      username: ${{ github.actor }}
+      test_command: "poetry install && poetry run pytest"
+    secrets:
+      registry_token: ${{ secrets.GITHUB_TOKEN }}
+      repos_token: ${{ secrets.CORRECT_SECRET_NAME }}
+      lintly_token: ${{ secrets.REPOS_TOKEN_DAIYI_FOR_LINTLY }}

@@ -1,0 +1,16 @@
+name: merge
+
+on:
+    # Allows you to run this workflow manually from the Actions tab
+    workflow_dispatch:
+
+jobs:
+    merge_master_in_production:
+        uses: feedgy/templates/.github/workflows/merge.yml@main
+        if: ${{ github.ref_name == 'master'}}
+        with:
+            source_branch: master
+            target_branch: production
+        # Use PAT token to trigger workflow on push
+        secrets:
+            ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}

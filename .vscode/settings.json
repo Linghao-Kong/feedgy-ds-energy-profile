@@ -1,0 +1,52 @@
+{
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    "**/*.pyc": true,
+    "**/*.pyo": true,
+    "**/*.pyd": true
+  },
+  "editor.rulers": [79],
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#0033ff"
+  },
+  "window.zoomLevel": 0,
+  "editor.lineHeight": 17,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "editor.inlineSuggest.enabled": true,
+  "breadcrumbs.enabled": false,
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit"
+    },
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  "notebook.formatOnSave.enabled": true,
+  "notebook.codeActionsOnSave": {
+    "notebook.source.fixAll": "explicit",
+    "notebook.source.organizeImports": "explicit"
+  },
+  "jupyter.themeMatplotlibPlots": true,
+  "jupyter.widgetScriptSources": [
+      "unpkg.com",
+      "jsdelivr.com"
+  ],
+  "python.analysis.typeCheckingMode": "basic",
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestArgs": ["tests"],
+  "python.testing.autoTestDiscoverOnSaveEnabled": true,
+  "autoDocstring.docstringFormat": "google",
+  "autoDocstring.generateDocstringOnEnter": true,
+  "autoDocstring.includeName": true,
+  "cSpell.words": [
+    "Docstrings",
+    "feedgy",
+    "Miniconda",
+    "Pyenv",
+    "Pytest"
+  ]
+}

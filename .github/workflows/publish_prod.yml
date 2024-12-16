@@ -1,0 +1,20 @@
+name: Build and Publish prod images
+
+on:
+  workflow_dispatch:
+
+jobs:
+  release:
+    if: (github.ref == 'refs/heads/production')
+    uses: feedgy/templates/.github/workflows/build-docker.yml@main
+    with:
+      image_name: ${{ github.repository }}
+      username: ${{ github.actor }}
+      branch: ${{ github.ref_name }}
+      dockerfile_path: Dockerfile
+      docker_build_args: production
+      to_ecr: false
+      to_ghcr: true
+    secrets:
+      registry_token: ${{ secrets.GITHUB_TOKEN }}
+      repos_token: ${{ secrets.ACCESS_TOKEN }}
